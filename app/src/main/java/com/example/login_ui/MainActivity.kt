@@ -26,6 +26,7 @@ import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.core.graphics.toColorInt
 import com.example.login_ui.ui.theme.Login_UITheme
 
 class MainActivity : ComponentActivity() {
@@ -47,23 +48,28 @@ class MainActivity : ComponentActivity() {
 fun Login() {
     val inputvalue = remember { mutableStateOf(TextFieldValue()) }
     val inputvalue2 = remember { mutableStateOf(TextFieldValue()) }
-
+    val myColorString = "#293543"
+    val myComposeColorInt = Color(myColorString.toColorInt())
     Surface(
         modifier = Modifier
             .fillMaxWidth()
             .fillMaxHeight()
 
+
     ) {
 
         Column(
             modifier = Modifier
-                .background(color = Color.White)
+                .background(myComposeColorInt)
                 .padding(20.dp), verticalArrangement = Arrangement.Center
         )
         {
 
             //background(color = Color.hsv(212F, 38.8F, 26.3F, 0F, colorSpace = ColorSpaces.Srgb
-            Card(shape = RoundedCornerShape(15.dp, 15.dp, 15.dp, 15.dp), modifier = Modifier.padding(bottom = 25.dp)) {
+            Card(
+                shape = RoundedCornerShape(15.dp, 15.dp, 15.dp, 15.dp),
+                modifier = Modifier.padding(bottom = 25.dp)
+            ) {
                 Column() {
                     TextField(
                         value = inputvalue.value, onValueChange = { inputvalue.value = it },
@@ -94,11 +100,16 @@ fun Login() {
             Text(
                 text = "- OR -",
                 textAlign = TextAlign.Center,
+                style = TextStyle(color = Color.White),
                 modifier = Modifier
                     .padding(0.dp, 25.dp, 0.dp, 0.dp)
                     .fillMaxWidth()
+
             )
-            Card(shape = RoundedCornerShape(15.dp, 15.dp, 15.dp, 15.dp), modifier = Modifier.padding(top=25.dp)) {
+            Card(
+                shape = RoundedCornerShape(15.dp, 15.dp, 15.dp, 15.dp),
+                modifier = Modifier.padding(top = 25.dp)
+            ) {
                 Button(
                     onClick = {
                     }, modifier = Modifier
@@ -112,9 +123,11 @@ fun Login() {
             Text(
                 text = "Need help? Call Us",
                 textAlign = TextAlign.Center,
+                style = TextStyle(color = Color.White),
                 modifier = Modifier
                     .padding(0.dp, 25.dp, 0.dp, 0.dp)
                     .fillMaxWidth()
+
             )
         }
     }
