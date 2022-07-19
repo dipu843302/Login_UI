@@ -54,10 +54,7 @@ fun Login() {
         modifier = Modifier
             .fillMaxWidth()
             .fillMaxHeight()
-
-
     ) {
-
         Column(
             modifier = Modifier
                 .background(myComposeColorInt)
@@ -68,19 +65,21 @@ fun Login() {
             //background(color = Color.hsv(212F, 38.8F, 26.3F, 0F, colorSpace = ColorSpaces.Srgb
             Card(
                 shape = RoundedCornerShape(15.dp, 15.dp, 15.dp, 15.dp),
-                modifier = Modifier.padding(bottom = 25.dp)
+                modifier = Modifier.padding(bottom = 25.dp),
+                backgroundColor = MaterialTheme.colors.surface.copy(alpha = 0.1f)
+
             ) {
                 Column() {
-                    TextField(
+                    OutlinedTextField(
                         value = inputvalue.value, onValueChange = { inputvalue.value = it },
-                        placeholder = { Text(text = "Email") },
+                        placeholder = {
+                            Text(text = "Email", color = Color.White) },
                         textStyle = TextStyle(color = Color.White),
-                        modifier = Modifier.fillMaxWidth()
-
+                        modifier = Modifier.fillMaxWidth(),
                     )
-                    TextField(
+                    OutlinedTextField(
                         value = inputvalue2.value, onValueChange = { inputvalue2.value = it },
-                        placeholder = { Text(text = "Password") },
+                        placeholder = { Text(text = "Password",color=Color.White) },
                         textStyle = TextStyle(color = Color.White),
                         modifier = Modifier.fillMaxWidth()
 
@@ -129,6 +128,7 @@ fun Login() {
                     .fillMaxWidth()
 
             )
+
         }
     }
 }
